@@ -1,0 +1,17 @@
+nav {
+  width: 100vw;
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 0.5em;
+}
+
+nav > a {
+  padding: 0.5em;
+  text-decoration: none;
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+a.active {
+  color: blue;
+}
