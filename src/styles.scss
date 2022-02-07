@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+@import url(./assets/styles/reset.scss); 
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+*{
+  font-family: 'Quicksand', 'sans-serif';
+}
+
+.product-grid {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  width: 80%;
+  gap: 0.6em;
+  padding: 0.5em;
+  > app-img{
+    img{
+      border-radius: 10px;
+    }
+  }
+}
+
+
+

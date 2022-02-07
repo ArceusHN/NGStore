@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../product.model';
+import { ProductsService } from '../services/products.service';
+import { StoreService } from '../services/store.service';
 
 @Component({
   selector: 'app-products',
@@ -7,55 +9,24 @@ import { Product } from '../product.model';
   styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent implements OnInit {
-  constructor() {}
-  products: Product[] = [
-    {
-      id: '1',
-      image: 'assets/images/camiseta.png',
-      title: 'Camiseta',
-      price: 80000,
-      description: 'Camiseta super bonita amariila con amor de platzi live',
-    },
-    {
-      id: '2',
-      image: 'assets/images/hoodie.png',
-      title: 'Hoodie',
-      price: 80000,
-      description: 'bla bla bla bla bla',
-    },
-    {
-      id: '3',
-      image: 'assets/images/mug.png',
-      title: 'Mug',
-      price: 80000,
-      description: 'bla bla bla bla bla',
-    },
-    {
-      id: '4',
-      image: 'assets/images/pin.png',
-      title: 'Pin',
-      price: 80000,
-      description: 'bla bla bla bla bla',
-    },
-    {
-      id: '5',
-      image: 'assets/images/stickers1.png',
-      title: 'Stickers',
-      price: 80000,
-      description: 'bla bla bla bla bla',
-    },
-    {
-      id: '6',
-      image: 'assets/images/stickers2.png',
-      title: 'Stickers',
-      price: 80000,
-      description: 'bla bla bla bla bla',
-    },
-  ];
 
-  ngOnInit(): void {}
+  products:Product[] = [];
+  shoppingCart:Product[] = [];
+  
+  constructor(private storeService:StoreService,
+              private productService:ProductsService) {
+      this.shoppingCart = storeService.getShoppingCart();
+  }
 
-  clickProduct(id: any) {
-    console.log('product: ' + id);
+  ngOnInit(): void {
+    this.productService.getProducts().subscribe(data => {
+      this.products = data;
+    });
+  }
+
+  onAddToShoppingCar(product:Product){
+    this.storeService.addProduct(product);
+    let totalCompra = this.storeService.getTotal();
+    console.log(totalCompra);
   }
 }

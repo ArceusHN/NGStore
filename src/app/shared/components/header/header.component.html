@@ -1,5 +1,50 @@
-<nav>
+<!-- <nav>
   <a routerLink="/home" routerLinkActive="active">Home</a>
   <a routerLink="/products" routerLinkActive="active">Products</a>
   <a routerLink="/contact" routerLinkActive="active">Contact</a>
-</nav>
+</nav> -->
+
+<div class="show-mobile">
+  <div class="header">
+    <button class="btn-icon" (click)="toggleMenu()">
+      <img src="../../../assets/svg/icon_menu.svg" alt="menu">
+    </button>
+    <a href="">
+      <img src=".../.././assets/svg/logo_yard_sale.svg" alt="logo">
+    </a>
+    <a href="">
+      <img src="../../../assets/svg/icon_shopping_cart.svg" alt="logo">
+    </a>
+  </div>
+  <div class="side-menu" [class.active]="activeMenu">
+    <button class="btn btn-secondary" (click)="toggleMenu()">Close</button>
+    <ul>
+      <li><a routerLink="/products">All</a></li>
+      <li><a href="">Clothes</a></li>
+      <li><a href="">Electronics</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="hide-mobile">
+  <div>
+    <nav>
+      <a class="logo" href="">
+        <img src="../../../assets/svg/logo_yard_sale.svg" alt="logo">
+      </a>
+      <ul>
+        <li><a routerLink="/products">All</a></li>
+        <li><a href="">Clothes</a></li>
+        <li><a href="">Electronics</a></li>
+      </ul>
+    </nav>
+    <div class="info">
+      <div class="account">nicolas@nicolas.com</div>
+      <div>
+        <a href="">
+          <img src="../../../assets/svg/icon_shopping_cart.svg" alt="logo">
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

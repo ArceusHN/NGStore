@@ -7,9 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  imgParent:string;
+  imgDefault:string;
+  showImg: boolean;
+  
+  constructor() {
+    this.imgDefault = "https://via.placeholder.com/150";
+    this.showImg = true;
+   }
 
   ngOnInit(): void {
+  }
+
+  onLoaded(img: string):void{
+    console.log(img);
+  }
+
+  toggle():void{
+    this.showImg = !this.showImg;
   }
 
 }
