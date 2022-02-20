@@ -24,14 +24,14 @@ export class ImgComponent{
     }
 
     ngOnInit(): void{
-        this.counterRef = setInterval(()=>{ // Pasa con intervals, obsevables con los subscribe, settimeout, eventos que queden activos.
-            this.counter++;
-            console.log(this.counter);
-        },  1000)
+        // this.counterRef = setInterval(()=>{ // Pasa con intervals, obsevables con los subscribe, settimeout, eventos que queden activos.
+        //     this.counter++;
+        //     console.log(this.counter);
+        // },  1000)
     }
 
     ngOnDestroy():void{
-        clearInterval(this.counterRef);
+        // clearInterval(this.counterRef);
     }
 
     imgError(e):void{

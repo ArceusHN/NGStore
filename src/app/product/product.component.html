@@ -7,7 +7,7 @@
 
 <div class="productCard__body">
   <p>{{ product.description | slice: 0:30 }}...</p>
-  <p class="product-price">{{ product.price | currency }}</p>
+  <p class="product-price">{{ product.price | currency:'HN' }}</p>
 </div>
 
 <div class="productCard__footer">
